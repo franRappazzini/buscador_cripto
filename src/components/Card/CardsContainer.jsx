@@ -2,6 +2,7 @@ import "./CardsContainer.scss";
 
 import Card from "./Card";
 import React from "react";
+import notFound from "../../assets/not found.png";
 import { useCoinsContext } from "../../context/CoinsContext";
 
 function CardsContainer({ search }) {
@@ -16,13 +17,19 @@ function CardsContainer({ search }) {
       : coins;
 
   return (
-    <section className="cards_container">
-      {coinsSearched ? (
-        coinsSearched.map((coin) => <Card key={coin.id} {...coin} />)
+    <>
+      {coinsSearched && coinsSearched.length > 0 ? (
+        <section className="cards_container">
+          {coinsSearched.map((coin) => (
+            <Card key={coin.id} {...coin} />
+          ))}
+        </section>
       ) : (
-        <p>No resultados</p>
+        <section className="not_found">
+          <img src={notFound} alt="not found" />
+        </section>
       )}
-    </section>
+    </>
   );
 }
 

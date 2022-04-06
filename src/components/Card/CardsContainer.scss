@@ -4,3 +4,12 @@
   grid-gap: 1rem;
   padding: 0 2rem;
 }
+
+.not_found {
+  display: flex;
+  justify-content: center;
+
+  img {
+    height: 350px;
+  }
+}
