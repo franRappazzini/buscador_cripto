@@ -1,13 +1,25 @@
-import Card from "../Card/Card";
-import React from "react";
-import { useCoinsContext } from "../../context/CoinsContext";
+import "./Home.scss";
+
+import React, { useState } from "react";
+
+import CardsContainer from "../Card/CardsContainer";
 
 function Home() {
-  const { coins } = useCoinsContext();
-  console.log(coins);
+  const [search, setSearch] = useState("");
+
   return (
     <main>
-      <h1>Home</h1>
+      <section className="input_search_container">
+        <input
+          type="text"
+          placeholder="Search"
+          onChange={(e) => setSearch(e.target.value)}
+          value={search}
+        />
+      </section>
+
+      <CardsContainer search={search} />
+
       <section
         style={{
           display: "grid",
@@ -15,9 +27,7 @@ function Home() {
           gridGap: "1rem",
           padding: "0 2rem",
         }}
-      >
-        {coins && coins.map((coin) => <Card key={coin.id} {...coin} />)}
-      </section>
+      ></section>
     </main>
   );
 }

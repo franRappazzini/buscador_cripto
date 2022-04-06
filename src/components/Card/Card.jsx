@@ -3,16 +3,16 @@ import "./Card.scss";
 import React from "react";
 
 function Card({
-  id,
   name,
   symbol,
   image,
   current_price,
   market_cap,
-  market_cap_change_percentage_24h,
+  price_change_percentage_1h_in_currency,
   price_change_percentage_24h,
   price_change_percentage_7d_in_currency,
-  ath_change_percentage,
+  low_24h,
+  high_24h,
 }) {
   function color() {
     if (price_change_percentage_24h >= 0) {
@@ -23,7 +23,7 @@ function Card({
   }
 
   return (
-    <article>
+    <article title="Go to CoinGecko">
       <section className="coin_details">
         <div className="coin_name_container">
           <img src={image} alt="icon name" width={50} height={50} />
@@ -34,15 +34,27 @@ function Card({
         </div>
         <div className="coin_numbers_container">
           <h3>${new Intl.NumberFormat().format(current_price)}</h3>
-          <p>ATH: {ath_change_percentage.toFixed(2)}%</p>
-          <p>7d: {price_change_percentage_7d_in_currency.toFixed(2)}%</p>
+          <p>
+            <span>1h:</span> {price_change_percentage_1h_in_currency.toFixed(2)}
+            %
+          </p>
+          <p>
+            <span>7d:</span> {price_change_percentage_7d_in_currency.toFixed(2)}
+            %
+          </p>
         </div>
       </section>
       <section className="coin_more_details">
         <div className="coin_metrics">
-          <p>Mkt Cap: ${market_cap}</p>
-          <p>Mkt Cap 24h: {market_cap_change_percentage_24h.toFixed(2)}%</p>
-          <p>Mkt Cap: ${new Intl.NumberFormat().format(market_cap)}</p>
+          <p>
+            <span>Low 24h:</span> ${new Intl.NumberFormat().format(low_24h)}
+          </p>
+          <p>
+            <span>Max 24h:</span> ${new Intl.NumberFormat().format(high_24h)}
+          </p>
+          <p>
+            <span>Mkt Cap:</span> ${new Intl.NumberFormat().format(market_cap)}
+          </p>
         </div>
         <div className="coin_percentage">
           <p className="percentage_24h" style={{ backgroundColor: color() }}>

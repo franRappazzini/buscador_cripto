@@ -4,3 +4,17 @@ body {
   background-attachment: fixed;
   color: whitesmoke;
 }
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+  scroll-behavior: smooth;
+  background-color: #020f18;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #39474bc0;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+}
