@@ -19,15 +19,6 @@ function Home() {
       </section>
 
       <CardsContainer search={search} />
-
-      <section
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gridGap: "1rem",
-          padding: "0 2rem",
-        }}
-      ></section>
     </main>
   );
 }
