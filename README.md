@@ -1,3 +1,14 @@
+# Buscador cripto
+
+Buscador de criptomonedas creado con React. Muestra las metricas de las 150 cripto mas valiosas por su market cap en tiempo real.
+
+## Dependencias Utilizadas 🛠️
+
+* React JS
+* Context
+* Sass
+* [API CoinGecko](https://www.coingecko.com/es/api/documentation)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
